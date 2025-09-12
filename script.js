@@ -1,5 +1,5 @@
 // List of your symbols (update with your own clipart filenames)
-const symbols = ["cherry.png", "star.png", "banana.png", "lemon.png", "grape.png"];
+const symbols = ["guitar.jpg", "saxophone.jpg", "trombone.jpg", "piano.jpg", "flute.jpg", "clarinet.jpg", "trumpet.jpg", "violin.jpg", "drums.jpg", "accordeon.jpg", "balalaika.jpg", "playguitar.jpg"];
 
 function spin() {
   const reels = [1, 2, 3].map(n => {
