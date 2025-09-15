@@ -31,13 +31,18 @@ function spin() {
     }, 80);
 
     // stop each reel at staggered intervals: 2s, 4s, 6s, 8s, 10s
-    setTimeout(() => {
-      clearInterval(interval);
-      const finalChoice = symbols[Math.floor(Math.random() * symbols.length)];
-      reel.src = `images/${finalChoice}`;
-      reel.classList.remove("spinning");
-      reels[n - 1] = finalChoice;
-      console.log(`Reel ${n} stopped on: ${finalChoice}`);
+   setTimeout(() => {
+  clearInterval(interval);
+  const finalChoice = symbols[Math.floor(Math.random() * symbols.length)];
+  reel.src = `images/${finalChoice}`;
+
+  // stop blur/shake and add bounce
+  reel.classList.remove("spinning");
+  reel.classList.add("stopping");
+  setTimeout(() => reel.classList.remove("stopping"), 400);
+
+  reels[n - 1] = finalChoice;
+  console.log(`Reel ${n} stopped on: ${finalChoice}`);
 
       // check result after last reel stops
       if (n === 5) {
