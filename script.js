@@ -13,10 +13,10 @@ function spin() {
     return choice;
   });
 
-  // Check if all match
+  // Check if all 5 match
   const result = document.getElementById("result");
-  if (reels[0] === reels[1] && reels[1] === reels[2]) {
-    result.textContent = "🎉 Jackpot! You got 3 in a row!";
+  if (reels.every(r => r === reels[0])) {
+    result.textContent = "🎉 Jackpot! You got 5 in a row!";
   } else {
     result.textContent = "Try again!";
   }
