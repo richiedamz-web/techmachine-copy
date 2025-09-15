@@ -6,14 +6,14 @@ async function loadSymbols() {
     symbols = await response.json();
     console.log("Loaded symbols:", symbols);
 
-    // Enable button after loading
+    // Enable the spin button after symbols load
     document.getElementById("spinBtn").disabled = false;
   } catch (err) {
-    console.error("Failed to load symbols.json", err);
+    console.error("Failed to load images.json", err);
   }
 }
 
-// call this once on page load
+// Load symbols once at page load
 loadSymbols();
 
 function spin() {
@@ -22,7 +22,6 @@ function spin() {
     return;
   }
 
-  console.log("Spin clicked ✅");
   const reels = [];
   const result = document.getElementById("result");
   result.textContent = "Spinning... 🎰";
@@ -48,7 +47,7 @@ function spin() {
       const finalChoice = symbols[Math.floor(Math.random() * symbols.length)];
       reel.src = `images/${finalChoice}`;
 
-      // stop blur, add bounce
+      // stop blur and add bounce
       reel.classList.remove("spinning");
       reel.classList.add("stopping");
       setTimeout(() => reel.classList.remove("stopping"), 400);
@@ -65,3 +64,4 @@ function spin() {
     }, (i + 1) * 2000);
   });
 }
+
