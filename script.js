@@ -1,21 +1,40 @@
-
-const symbols = ["guitar.jpg", "saxophone.jpg", "trombone.jpg", "piano.jpg", "flute.jpg", "clarinet.jpg", "trumpet.jpg", "violin.jpg", "drums.jpg", "accordeon.jpg", "balalaika.jpg", "playguitar.jpg"];
-
-
-
+const symbols = [
+  "guitar.jpg", "saxophone.jpg", "trombone.jpg", "piano.jpg",
+  "flute.jpg", "clarinet.jpg", "trumpet.jpg", "violin.jpg",
+  "drums.jpg", "accordeon.jpg", "balalaika.jpg", "playguitar.jpg"
+];
 
 function spin() {
-  const reels = [1, 2, 3, 4, 5].map(n => {
-    const choice = symbols[Math.floor(Math.random() * symbols.length)];
-    document.getElementById(`reel${n}`).src = `images/${choice}`;
-    return choice;
-  });
-
-  // Check if all 5 match
+  const reels = [];
   const result = document.getElementById("result");
-  if (reels.every(r => r === reels[0])) {
-    result.textContent = "🎉 Jackpot! You got 5 in a row!";
-  } else {
-    result.textContent = "Try again!";
-  }
+  result.textContent = "Spinning... 🎰";
+
+  [1, 2, 3, 4, 5].forEach((n, i) => {
+    let counter = 0;
+    const reel = document.getElementById(`reel${n}`);
+
+    // change image every 100ms
+    const interval = setInterval(() => {
+      const choice = symbols[Math.floor(Math.random() * symbols.length)];
+      reel.src = `images/${choice}`;
+      counter++;
+    }, 100);
+
+    // stop reel after (i+1)*2000 ms → 2s, 4s, 6s, etc.
+    setTimeout(() => {
+      clearInterval(interval);
+      const finalChoice = symbols[Math.floor(Math.random() * symbols.length)];
+      reel.src = `images/${finalChoice}`;
+      reels[n - 1] = finalChoice;
+
+      // When the last reel stops, check result
+      if (n === 5) {
+        if (reels.every(r => r === reels[0])) {
+          result.textContent = "🎉 Jackpot! You got 5 in a row!";
+        } else {
+          result.textContent = "Try again!";
+        }
+      }
+    }, (i + 1) * 2000);
+  });
 }
