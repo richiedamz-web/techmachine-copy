@@ -1,35 +1,21 @@
 #slot-machine img {
-  width: 120px;   /* or whatever size you want */
-  height: 120px;
-  object-fit: contain; /* ensures the whole image fits without distortion */
-  border: 2px solid #333;
-  margin: 5px;
-}
-body {
-  text-align: center;
-  font-family: sans-serif;
-  background: #f5f5f5;
-}
-
-#slot-machine {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
-
-.reel {
   width: 120px;
   height: 120px;
-  margin: 10px;
-  border: 3px solid #333;
-  border-radius: 10px;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: contain; /* keep proportions without stretching */
+  border: 2px solid #333;
+  margin: 5px;
+  transition: filter 0.2s ease; /* smooth blur in/out */
 }
 
-.reel img {
-  max-width: 100px;
-  max-height: 100px;
+/* Spinning effect: blur + shake */
+.spinning {
+  animation: spinblur 0.1s infinite linear;
+  filter: blur(2px);
 }
+
+@keyframes spinblur {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-5px); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(5px); }
+  100% { transform: translateY(0); }
