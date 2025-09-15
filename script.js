@@ -3,8 +3,6 @@ const symbols = ["guitar.jpg", "saxophone.jpg", "trombone.jpg", "piano.jpg", "fl
 
 
 
-<p id="result"></p>
-<button onclick="spin()">Spin</button>
 
 function spin() {
   const reels = [1, 2, 3, 4, 5].map(n => {
