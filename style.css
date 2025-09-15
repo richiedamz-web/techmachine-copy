@@ -1,7 +1,7 @@
 #slot-machine img {
   width: 120px;
   height: 120px;
-  object-fit: contain;        /* fill the square */
+  object-fit: cover;        /* fill the square */
   object-position: center;  /* crop from center */
   border: 2px solid #333;
   margin: 5px;
