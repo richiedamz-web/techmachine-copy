@@ -13,10 +13,10 @@ function spin() {
     const reel = document.getElementById(`reel${n}`);
     reel.classList.add("spinning"); // start animation
 
-    const interval = setInterval(() => {
-      const choice = symbols[Math.floor(Math.random() * symbols.length)];
-      reel.src = `images/${choice}`;
-    }, 100);
+const interval = setInterval(() => {
+  const choice = symbols[Math.floor(Math.random() * symbols.length)];
+  reel.src = `images/${choice}`;
+}, 50);  // faster refresh
 
     // stop reel after (i+1)*2000 ms → 2s, 4s, 6s, etc.
     setTimeout(() => {
