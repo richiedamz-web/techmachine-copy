@@ -11,19 +11,25 @@ function spin() {
 
   [1, 2, 3, 4, 5].forEach((n, i) => {
     const reel = document.getElementById(`reel${n}`);
-    reel.classList.add("spinning"); // start animation
+    reel.classList.add("spinning"); // start blur/shake
 
-const interval = setInterval(() => {
-  const choice = symbols[Math.floor(Math.random() * symbols.length)];
-  reel.src = `images/${choice}`;
-}, 50);  // faster refresh
+    let lastChoice = null;
+
+    const interval = setInterval(() => {
+      let choice;
+      do {
+        choice = symbols[Math.floor(Math.random() * symbols.length)];
+      } while (choice === lastChoice); // prevent repeats
+      reel.src = `images/${choice}`;
+      lastChoice = choice;
+    }, 80); // fast cycle
 
     // stop reel after (i+1)*2000 ms → 2s, 4s, 6s, etc.
     setTimeout(() => {
       clearInterval(interval);
       const finalChoice = symbols[Math.floor(Math.random() * symbols.length)];
       reel.src = `images/${finalChoice}`;
-      reel.classList.remove("spinning"); // stop animation
+      reel.classList.remove("spinning"); // stop blur/shake
       reels[n - 1] = finalChoice;
 
       // when the last reel stops, check result
