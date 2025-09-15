@@ -1,4 +1,4 @@
-// List of your symbols (update with your own clipart filenames)
+
 const symbols = ["guitar.jpg", "saxophone.jpg", "trombone.jpg", "piano.jpg", "flute.jpg", "clarinet.jpg", "trumpet.jpg", "violin.jpg", "drums.jpg", "accordeon.jpg", "balalaika.jpg", "playguitar.jpg"];
 
 
