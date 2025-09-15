@@ -1,7 +1,8 @@
 #slot-machine img {
   width: 120px;
   height: 120px;
-  object-fit: cover;   /* fills square consistently */
+  object-fit: cover;   /* makes all images fill the square */
+  object-position: center; /* centers the crop */
   border: 2px solid #333;
   margin: 5px;
   transition: filter 0.2s ease;
