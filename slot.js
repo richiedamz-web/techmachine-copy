@@ -2,9 +2,12 @@ let symbols = [];
 
 async function loadSymbols() {
   try {
-    const response = await fetch("images/images.json"); // path to JSON
+    const response = await fetch("images/images.json");
     symbols = await response.json();
     console.log("Loaded symbols:", symbols);
+
+    // Enable button after loading
+    document.getElementById("spinBtn").disabled = false;
   } catch (err) {
     console.error("Failed to load symbols.json", err);
   }
