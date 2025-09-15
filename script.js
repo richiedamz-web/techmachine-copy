@@ -5,45 +5,52 @@ const symbols = [
 ];
 
 function spin() {
+  console.log("Spin clicked ✅");
   const reels = [];
   const result = document.getElementById("result");
   result.textContent = "Spinning... 🎰";
 
-  console.log("Spin clicked");
-[1,2,3,4,5].forEach(n => {
-  const el = document.getElementById(`reel${n}`);
-  console.log(`reel${n}:`, el);
-});
-
   [1, 2, 3, 4, 5].forEach((n, i) => {
     const reel = document.getElementById(`reel${n}`);
-    reel.classList.add("spinning"); // start blur/shake
+    if (!reel) {
+      console.error("Reel element not found:", n);
+      return;
+    }
 
+    reel.classList.add("spinning"); // start animation
     let lastChoice = null;
 
+    // change symbol every 80ms
     const interval = setInterval(() => {
       let choice;
       do {
         choice = symbols[Math.floor(Math.random() * symbols.length)];
-      } while (choice === lastChoice); // prevent repeats
+      } while (choice === lastChoice);
       reel.src = `images/${choice}`;
       lastChoice = choice;
-    }, 80); // fast cycle
+    }, 80);
 
-    // stop reel after (i+1)*2000 ms → 2s, 4s, 6s, etc.
+    // stop each reel at staggered intervals: 2s, 4s, 6s, 8s, 10s
     setTimeout(() => {
       clearInterval(interval);
       const finalChoice = symbols[Math.floor(Math.random() * symbols.length)];
       reel.src = `images/${finalChoice}`;
-      reel.classList.remove("spinning"); // stop blur/shake
+      reel.classList.remove("spinning");
       reels[n - 1] = finalChoice;
+      console.log(`Reel ${n} stopped on: ${finalChoice}`);
 
-      // when the last reel stops, check result
+      // check result after last reel stops
       if (n === 5) {
+        console.log("All reels stopped:", reels);
         if (reels.every(r => r === reels[0])) {
           result.textContent = "🎉 Jackpot! You got 5 in a row!";
         } else {
           result.textContent = "Try again!";
+        }
+      }
+    }, (i + 1) * 2000);
+  });
+}
         }
       }
     }, (i + 1) * 2000);
