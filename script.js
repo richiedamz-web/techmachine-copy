@@ -9,6 +9,12 @@ function spin() {
   const result = document.getElementById("result");
   result.textContent = "Spinning... 🎰";
 
+  console.log("Spin clicked");
+[1,2,3,4,5].forEach(n => {
+  const el = document.getElementById(`reel${n}`);
+  console.log(`reel${n}:`, el);
+});
+
   [1, 2, 3, 4, 5].forEach((n, i) => {
     const reel = document.getElementById(`reel${n}`);
     reel.classList.add("spinning"); // start blur/shake
