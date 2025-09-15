@@ -1,11 +1,11 @@
 #slot-machine img {
   width: 120px;
   height: 120px;
-  object-fit: cover;   /* makes all images fill the square */
-  object-position: center; /* centers the crop */
+  object-fit: cover;        /* fill the square, even if some crop */
+  object-position: center;  /* crop center, avoid weird edges */
   border: 2px solid #333;
   margin: 5px;
-  transition: filter 0.2s ease;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
 
 /* Spinning effect: blur + vertical wobble */
@@ -13,6 +13,16 @@
   animation: spinblur 0.1s infinite linear;
   filter: blur(2px);
 }
+
+@keyframes spinblur {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-5px); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+
+/* Bounce effect for final stop */
 .stopping {
   animation: bounce 0.4s ease;
 }
