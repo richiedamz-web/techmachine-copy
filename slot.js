@@ -1,7 +1,7 @@
 const symbols = [
   "guitar.jpg", "saxophone.jpg", "trombone.jpg", "piano.jpg",
-  "flute.jpg", "clarinet.jpg", "trumpet.jpg", "violin.jpg",
-  "drums.jpg", "accordeon.jpg", "balalaika.jpg", "playguitar.jpg"
+  "flute.jpg", "clarinet.jpg", "trumpet.jpg", "violinp.jpg",
+  "drums.jpg", "accordionp.jpg", "balalaika.jpg", "playguitar.jpg"
 ];
 
 function spin() {
