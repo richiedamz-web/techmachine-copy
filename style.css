@@ -1,14 +1,14 @@
 #slot-machine img {
   width: 120px;
   height: 120px;
-  object-fit: contain;        /* fill the square */
-  object-position: center;  /* crop from center */
+  object-fit: cover;        /* fills the square, consistent size */
+  object-position: center;  /* crop centered */
   border: 2px solid #333;
   margin: 5px;
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-/* Spinning effect: blur + wobble */
+/* Spinning effect: blur + vertical wobble */
 .spinning {
   animation: spinblur 0.1s infinite linear;
   filter: blur(2px);
