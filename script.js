@@ -10,14 +10,12 @@ function spin() {
   result.textContent = "Spinning... 🎰";
 
   [1, 2, 3, 4, 5].forEach((n, i) => {
-    let counter = 0;
     const reel = document.getElementById(`reel${n}`);
+    reel.classList.add("spinning"); // start animation
 
-    // change image every 100ms
     const interval = setInterval(() => {
       const choice = symbols[Math.floor(Math.random() * symbols.length)];
       reel.src = `images/${choice}`;
-      counter++;
     }, 100);
 
     // stop reel after (i+1)*2000 ms → 2s, 4s, 6s, etc.
@@ -25,9 +23,10 @@ function spin() {
       clearInterval(interval);
       const finalChoice = symbols[Math.floor(Math.random() * symbols.length)];
       reel.src = `images/${finalChoice}`;
+      reel.classList.remove("spinning"); // stop animation
       reels[n - 1] = finalChoice;
 
-      // When the last reel stops, check result
+      // when the last reel stops, check result
       if (n === 5) {
         if (reels.every(r => r === reels[0])) {
           result.textContent = "🎉 Jackpot! You got 5 in a row!";
