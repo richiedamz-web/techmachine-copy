@@ -1,19 +1,5 @@
-let symbols = [];
-
-async function loadSymbols() {
-  try {
-   const response = await fetch("./images/images.json");
-symbols = await response.json();
-console.log("Loaded symbols:", symbols);
-document.getElementById("spinBtn").disabled = false;
-  } catch (err) {
-    console.error("Failed to load images.json", err);
-  }
-}
-
-loadSymbols();
-
 function spin() {
+  console.log("Spinning!");
   if (symbols.length === 0) {
     console.warn("Symbols not loaded yet!");
     return;
