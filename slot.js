@@ -2,7 +2,7 @@ let symbols = [];
 
 async function loadSymbols() {
   try {
-    const response = await fetch("images/images.json");
+    const response = await fetch("./images/images.json");
     symbols = await response.json();
     console.log("Loaded symbols:", symbols);
     document.getElementById("spinBtn").disabled = false;
