@@ -1,14 +1,13 @@
 #slot-machine img {
   width: 120px;
   height: 120px;
-  object-fit: cover;        /* fills the square, consistent size */
-  object-position: center;  /* crop centered */
+  object-fit: cover;
+  object-position: center;
   border: 2px solid #333;
   margin: 5px;
   transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-/* Spinning effect: blur + vertical wobble */
 .spinning {
   animation: spinblur 0.1s infinite linear;
   filter: blur(2px);
@@ -22,10 +21,15 @@
   100% { transform: translateY(0); }
 }
 
-/* Bounce effect when reel stops */
 .stopping {
   animation: bounce 0.4s ease;
 }
+
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.15); }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
 
 @keyframes bounce {
   0%   { transform: scale(1); }
