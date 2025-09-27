@@ -2,10 +2,16 @@ let symbols = [];
 
 async function loadSymbols() {
   try {
-    // Fetch the latest images.json
+    console.log("Fetching images.json from ./images/images.json?v=2...");
     const response = await fetch("./images/images.json?v=2");
+    console.log("Fetch response:", response);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     symbols = await response.json();
-    console.log("Loaded symbols:", symbols);
+    console.log("Symbols loaded:", symbols);
 
     // Initialize each reel with a random image
     for (let i = 1; i <= 5; i++) {
@@ -16,7 +22,6 @@ async function loadSymbols() {
       }
     }
 
-    // Enable the spin button
     const spinBtn = document.getElementById("spinBtn");
     spinBtn.disabled = false;
     spinBtn.addEventListener("click", spin);
@@ -50,14 +55,12 @@ function spin() {
     let spinStart = Date.now();
 
     const spinInterval = setInterval(() => {
-      // Show a random symbol during spinning
       const choice = symbols[Math.floor(Math.random() * symbols.length)];
       reel.src = `images/${choice}`;
 
       if (Date.now() - spinStart >= duration) {
         clearInterval(spinInterval);
 
-        // Pick a unique symbol from the remaining pool
         const randomIndex = Math.floor(Math.random() * availableSymbols.length);
         const finalChoice = availableSymbols[randomIndex];
         availableSymbols.splice(randomIndex, 1);
@@ -69,7 +72,6 @@ function spin() {
 
         reels[n - 1] = finalChoice;
 
-        // Show result after last reel stops
         if (n === 5) {
           if (reels.every(r => r === reels[0])) {
             result.textContent = "🎉 Jackpot! You got 5 in a row!";
