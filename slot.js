@@ -2,14 +2,8 @@ let symbols = [];
 
 async function loadSymbols() {
   try {
-    console.log("Fetching images.json from ./images/images.json?v=2...");
     const response = await fetch("./images/images.json?v=2");
-    console.log("Fetch response:", response);
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     symbols = await response.json();
     console.log("Symbols loaded:", symbols);
 
@@ -34,12 +28,11 @@ async function loadSymbols() {
 
 function spin() {
   if (symbols.length < 5) {
-    console.error("Not enough unique symbols to fill all reels.");
-    document.getElementById("result").textContent = "Error: Not enough symbols!";
+    document.getElementById("result").textContent = "Not enough symbols!";
     return;
   }
 
-  let availableSymbols = [...symbols];
+  const availableSymbols = [...symbols];
   const reels = [];
   const result = document.getElementById("result");
   const spinBtn = document.getElementById("spinBtn");
@@ -51,20 +44,20 @@ function spin() {
     if (!reel) return;
 
     reel.classList.add("spinning");
-    let duration = 2000 + i * 500;
-    let spinStart = Date.now();
+    const duration = 2000 + i * 500;
+    const spinStart = Date.now();
 
     const spinInterval = setInterval(() => {
-      const choice = symbols[Math.floor(Math.random() * symbols.length)];
-      reel.src = `images/${choice}`;
+      // Random symbol for spinning effect
+      const randomChoice = symbols[Math.floor(Math.random() * symbols.length)];
+      reel.src = `images/${randomChoice}`;
 
       if (Date.now() - spinStart >= duration) {
         clearInterval(spinInterval);
 
-        const randomIndex = Math.floor(Math.random() * availableSymbols.length);
-        const finalChoice = availableSymbols[randomIndex];
-        availableSymbols.splice(randomIndex, 1);
-
+        // Final symbol: pick unique one
+        const index = Math.floor(Math.random() * availableSymbols.length);
+        const finalChoice = availableSymbols.splice(index, 1)[0];
         reel.src = `images/${finalChoice}`;
         reel.classList.remove("spinning");
         reel.classList.add("stopping");
@@ -72,6 +65,7 @@ function spin() {
 
         reels[n - 1] = finalChoice;
 
+        // After last reel
         if (n === 5) {
           if (reels.every(r => r === reels[0])) {
             result.textContent = "🎉 Jackpot! You got 5 in a row!";
