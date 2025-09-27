@@ -3,7 +3,7 @@ let symbols = [];
 async function loadSymbols() {
   try {
     // Fetch the latest images.json
-    const response = await fetch("./images.json?v=2");
+    const response = await fetch("./images/images.json?v=2");
     symbols = await response.json();
     console.log("Loaded symbols:", symbols);
 
