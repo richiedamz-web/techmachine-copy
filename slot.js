@@ -1,16 +1,31 @@
 let symbols = [];
 
+let symbols = [];
+
 async function loadSymbols() {
   try {
-    const response = await fetch("./images/images.json");
+    // Fetch the latest images.json
+    const response = await fetch("./images/images.json?v=2"); // cache-busting query
     symbols = await response.json();
     console.log("Loaded symbols:", symbols);
 
+    // Initialize each reel with a random image
+    for (let i = 1; i <= 5; i++) {
+      const reel = document.getElementById(`reel${i}`);
+      if (reel) {
+        const choice = symbols[Math.floor(Math.random() * symbols.length)];
+        reel.src = `images/${choice}`;
+      }
+    }
+
+    // Enable spin button
     const spinBtn = document.getElementById("spinBtn");
     spinBtn.disabled = false;
     spinBtn.addEventListener("click", spin);
+
   } catch (err) {
     console.error("Failed to load images.json", err);
+    document.getElementById("result").textContent = "Error loading images!";
   }
 }
 
