@@ -5,9 +5,8 @@ async function loadSymbols() {
     const response = await fetch("./images/images.json?v=2");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     symbols = await response.json();
-    console.log("Symbols loaded:", symbols);
 
-    // Initialize each reel with a random image
+    // Initialize each reel with a random symbol
     for (let i = 1; i <= 5; i++) {
       const reel = document.getElementById(`reel${i}`);
       if (reel) {
@@ -44,18 +43,23 @@ function spin() {
     if (!reel) return;
 
     reel.classList.add("spinning");
-    const duration = 2000 + i * 500;
-    const spinStart = Date.now();
+    const duration = 2000 + i * 500; // Each reel stops later
+    const startTime = performance.now();
 
-    const spinInterval = setInterval(() => {
+    function animate(now) {
+      const elapsed = now - startTime;
+
+      // Spin speed decreases over time
+      const speed = Math.max(60, 300 - (elapsed / duration) * 300);
+
       // Random symbol for spinning effect
       const randomChoice = symbols[Math.floor(Math.random() * symbols.length)];
       reel.src = `images/${randomChoice}`;
 
-      if (Date.now() - spinStart >= duration) {
-        clearInterval(spinInterval);
-
-        // Final symbol: pick unique one
+      if (elapsed < duration) {
+        setTimeout(() => requestAnimationFrame(animate), speed);
+      } else {
+        // Final symbol
         const index = Math.floor(Math.random() * availableSymbols.length);
         const finalChoice = availableSymbols.splice(index, 1)[0];
         reel.src = `images/${finalChoice}`;
@@ -75,7 +79,9 @@ function spin() {
           spinBtn.disabled = false;
         }
       }
-    }, 60);
+    }
+
+    requestAnimationFrame(animate);
   });
 }
 
