@@ -2,7 +2,7 @@ let symbols = [];
 
 async function loadSymbols() {
   try {
-    const response = await fetch("./images/images.json?v=2");
+    const response = await fetch("./images/images.json?v=3");
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     symbols = await response.json();
 
