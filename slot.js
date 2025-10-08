@@ -36,7 +36,7 @@ function spin() {
   const result = document.getElementById("result");
   const spinBtn = document.getElementById("spinBtn");
   spinBtn.disabled = true;
-  result.textContent = "Spinning... 🎰";
+  result.textContent = "Ça tourne!... 🎰";
 
   [1, 2, 3, 4, 5].forEach((n, i) => {
     const reel = document.getElementById(`reel${n}`);
