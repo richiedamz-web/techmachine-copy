@@ -74,7 +74,7 @@ function spin() {
           if (reels.every(r => r === reels[0])) {
             result.textContent = "🎉 Jackpot! You got 5 in a row!";
           } else {
-            result.textContent = "Here are your symbols!";
+            result.textContent = "Voici tes images!";
           }
           spinBtn.disabled = false;
         }
