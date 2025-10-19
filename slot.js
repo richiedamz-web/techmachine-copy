@@ -1,19 +1,20 @@
-let symbols = [
-  "images/animationnew.jpg?v=123",
-  "images/jecodenew.png?v=123",
-  "images/jejoue.jpg?v=123",
-  "images/jenvoieemails.jpg?v=123",
-  "images/jenvoiesms.jpg?v=123",
-  "images/jeparleamies.jpg?v=123",
-  "images/jeparleamiesnew.jpg?v=123",
-  "images/jeparleamis.jpg?v=123",
-  "images/jeregardenew.jpg?v=123",
-  "images/jesurfenew.jpg?v=123",
-  "images/jetchattenew.png?v=123",
-  "images/jetelecharge.jpg?v=123",
-  "images/programmation.jpg?v=123"
-];
+const cacheBuster = new Date().getTime();
 
+let symbols = [
+  `images/animationnew.jpg?v=${cacheBuster}`,
+  `images/jecodenew.png?v=${cacheBuster}`,
+  `images/jejoue.jpg?v=${cacheBuster}`,
+  `images/jenvoieemails.jpg?v=${cacheBuster}`,
+  `images/jenvoiesms.jpg?v=${cacheBuster}`,
+  `images/jeparleamies.jpg?v=${cacheBuster}`,
+  `images/jeparleamiesnew.jpg?v=${cacheBuster}`,
+  `images/jeparleamis.jpg?v=${cacheBuster}`,
+  `images/jeregardenew.jpg?v=${cacheBuster}`,
+  `images/jesurfenew.jpg?v=${cacheBuster}`,
+  `images/jetchattenew.png?v=${cacheBuster}`,
+  `images/jetelecharge.jpg?v=${cacheBuster}`,
+  `images/programmation.jpg?v=${cacheBuster}`
+];
 // Initialize reels on page load
 function initializeReels() {
   for (var i = 1; i <= 5; i++) {
