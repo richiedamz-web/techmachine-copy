@@ -8,7 +8,6 @@ var symbols = [
   "images/jecodenew2.png",
   "images/jenvoieemails.jpg",
   "images/jenvoiesms.jpg",
-  "images/jeparleamies.jpg",
   "images/jeparleamiesnew2.jpg",
   "images/jeparleamis.jpg",
   "images/jeregardenew2.jpg",
