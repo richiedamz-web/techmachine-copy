@@ -15,7 +15,7 @@ var symbols = [
   `images/jetelecharge.jpg?v=${cacheBuster}`,
   `images/programmation.jpg?v=${cacheBuster}`
 ];
-// Initialize reels on page load
+
 function initializeReels() {
   for (var i = 1; i <= 5; i++) {
     var reel = document.getElementById("reel" + i);
@@ -31,7 +31,6 @@ function initializeReels() {
   }
 }
 
-// Spin function
 function spin() {
   if (symbols.length < 5) {
     var result = document.getElementById("result");
@@ -58,7 +57,9 @@ function spin() {
       function animate(now) {
         var elapsed = now - startTime;
         var speed = Math.max(60, 300 - (elapsed / duration) * 300);
-        reel.src = "images/" + symbols[Math.floor(Math.random() * symbols.length)] + "?v=123";
+
+        // ✅ Use symbols directly, no extra "images/" or "?v="
+        reel.src = symbols[Math.floor(Math.random() * symbols.length)];
 
         if (elapsed < duration) {
           setTimeout(function() { requestAnimationFrame(animate); }, speed);
@@ -88,5 +89,4 @@ function spin() {
   }
 }
 
-// Run initialization
 window.addEventListener("DOMContentLoaded", initializeReels);
