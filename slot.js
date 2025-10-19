@@ -14,6 +14,7 @@ var symbols = [
   "images/programmation.jpg"
 ];
 
+// Initialize reels on page load
 function initializeReels() {
   for (var i = 1; i <= 5; i++) {
     var reel = document.getElementById("reel" + i);
@@ -29,6 +30,7 @@ function initializeReels() {
   }
 }
 
+// Spin function
 function spin() {
   if (symbols.length < 5) {
     var result = document.getElementById("result");
@@ -44,12 +46,12 @@ function spin() {
   if (result) result.textContent = "Ça tourne!... 🎰";
 
   for (var n = 1; n <= 5; n++) {
-    (function(n, i) {
+    (function(n) {
       var reel = document.getElementById("reel" + n);
       if (!reel) return;
 
       reel.classList.add("spinning");
-      var duration = 2000 + i * 500;
+      var duration = 2000 + (n - 1) * 500;
       var startTime = performance.now();
 
       function animate(now) {
@@ -81,8 +83,9 @@ function spin() {
       }
 
       requestAnimationFrame(animate);
-    })(n, n-1);
+    })(n);
   }
 }
 
+// Run initialization
 window.addEventListener("DOMContentLoaded", initializeReels);
