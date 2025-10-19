@@ -15,24 +15,19 @@ let symbols = [
 ];
 
 function initializeReels() {
-  try {
-    for (let i = 1; i <= 5; i++) {
-      const reel = document.getElementById(`reel${i}`);
-      if (reel) {
-        const choice = symbols[Math.floor(Math.random() * symbols.length)];
-        reel.src = choice;
-      }
+  // Initialize each reel with a random symbol
+  for (let i = 1; i <= 5; i++) {
+    const reel = document.getElementById(`reel${i}`);
+    if (reel) {
+      const choice = symbols[Math.floor(Math.random() * symbols.length)];
+      reel.src = choice; // ✅ use the value directly
     }
+  }
 
-    const spinBtn = document.getElementById("spinBtn");
-    if (spinBtn) {
-      spinBtn.disabled = false;
-      spinBtn.addEventListener("click", spin);
-    }
-  } catch (err) {
-    console.error("Failed to initialize reels", err);
-    const result = document.getElementById("result");
-    if (result) result.textContent = "Error loading images!";
+  const spinBtn = document.getElementById("spinBtn");
+  if (spinBtn) {
+    spinBtn.disabled = false;
+    spinBtn.addEventListener("click", spin);
   }
 }
 
@@ -91,5 +86,5 @@ function spin() {
   });
 }
 
-// Run only one initialization on DOM load
+// Initialize reels on page load
 window.addEventListener("DOMContentLoaded", initializeReels);
