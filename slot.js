@@ -2,9 +2,21 @@ let symbols = [];
 
 async function loadSymbols() {
   try {
-    const response = await fetch("./images/images.json?v=3");
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    symbols = await response.json();
+const symbols = [
+  "images/animationnew.jpg?v=2",
+  "images/jecodenew.png?v=2",
+  "images/jejoue.jpg?v=2",
+  "images/jenvoieemails.jpg?v=2",
+  "images/jenvoiesms.jpg?v=2",
+  "images/jeparleamies.jpg?v=2",
+  "images/jeparleamiesnew.jpg?v=2",
+  "images/jeparleamis.jpg?v=2",
+  "images/jeregardenew.jpg?v=2",
+  "images/jesurfenew.jpg?v=2",
+  "images/jetchattenew.png?v=2",
+  "images/jetelecharge.jpg?v=2",
+  "images/programmation.jpg?v=2"
+];
 
     // Initialize each reel with a random symbol
     for (let i = 1; i <= 5; i++) {
