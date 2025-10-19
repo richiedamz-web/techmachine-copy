@@ -29,13 +29,6 @@ function initializeReels() {
   }
 }
 
-  const spinBtn = document.getElementById("spinBtn");
-  if (spinBtn) {
-    spinBtn.disabled = false;
-    spinBtn.addEventListener("click", spin);
-  }
-}
-
 function spin() {
   if (symbols.length < 5) {
     const result = document.getElementById("result");
