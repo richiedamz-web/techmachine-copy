@@ -1,17 +1,17 @@
 let symbols = [
-  "images/animationnew2.jpg?v=1",
-  "images/jecodenew2.png?v=1",
-  "images/jejoue.jpg?v=1",
-  "images/jenvoieemails.jpg?v=1",
-  "images/jenvoiesms.jpg?v=1",
-  "images/jeparleamies.jpg?v=1",
-  "images/jeparleamiesnew2.jpg?v=1",
-  "images/jeparleamis.jpg?v=1",
-  "images/jeregardenew2.jpg?v=1",
-  "images/jesurfenew.jpg?v=1",
-  "images/jetchattenew2.png?v=1",
-  "images/jetelecharge.jpg?v=1",
-  "images/programmation.jpg?v=1"
+  "images/animationnew.jpg?v=123",
+  "images/jecodenew.png?v=123",
+  "images/jejoue.jpg?v=123",
+  "images/jenvoieemails.jpg?v=123",
+  "images/jenvoiesms.jpg?v=123",
+  "images/jeparleamies.jpg?v=123",
+  "images/jeparleamiesnew.jpg?v=123",
+  "images/jeparleamis.jpg?v=123",
+  "images/jeregardenew.jpg?v=123",
+  "images/jesurfenew.jpg?v=123",
+  "images/jetchattenew.png?v=123",
+  "images/jetelecharge.jpg?v=123",
+  "images/programmation.jpg?v=123"
 ];
 
 // Initialize reels on page load
