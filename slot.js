@@ -54,8 +54,7 @@ function spin() {
     function animate(now) {
       const elapsed = now - startTime;
       const speed = Math.max(60, 300 - (elapsed / duration) * 300);
-      const randomChoice = symbols[Math.floor(Math.random() * symbols.length)];
-      reel.src = randomChoice;
+      reel.src = symbols[Math.floor(Math.random() * symbols.length)];
 
       if (elapsed < duration) {
         setTimeout(() => requestAnimationFrame(animate), speed);
@@ -84,5 +83,4 @@ function spin() {
   });
 }
 
-// Initialize reels on page load
 window.addEventListener("DOMContentLoaded", initializeReels);
