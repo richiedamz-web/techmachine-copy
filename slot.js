@@ -1,28 +1,33 @@
 let symbols = [
-  "images/animationnew.jpg?v=2",
-  "images/jecodenew.png?v=2",
-  "images/jejoue.jpg?v=2",
-  "images/jenvoieemails.jpg?v=2",
-  "images/jenvoiesms.jpg?v=2",
-  "images/jeparleamies.jpg?v=2",
-  "images/jeparleamiesnew.jpg?v=2",
-  "images/jeparleamis.jpg?v=2",
-  "images/jeregardenew.jpg?v=2",
-  "images/jesurfenew.jpg?v=2",
-  "images/jetchattenew.png?v=2",
-  "images/jetelecharge.jpg?v=2",
-  "images/programmation.jpg?v=2"
+  "images/animationnew.jpg",
+  "images/jecodenew.png",
+  "images/jejoue.jpg",
+  "images/jenvoieemails.jpg",
+  "images/jenvoiesms.jpg",
+  "images/jeparleamies.jpg",
+  "images/jeparleamiesnew.jpg",
+  "images/jeparleamis.jpg",
+  "images/jeregardenew.jpg",
+  "images/jesurfenew.jpg",
+  "images/jetchattenew.png",
+  "images/jetelecharge.jpg",
+  "images/programmation.jpg"
 ];
 
 function initializeReels() {
-  // Initialize each reel with a random symbol
   for (let i = 1; i <= 5; i++) {
     const reel = document.getElementById(`reel${i}`);
     if (reel) {
-      const choice = symbols[Math.floor(Math.random() * symbols.length)];
-      reel.src = choice; // ✅ use the value directly
+      reel.src = symbols[Math.floor(Math.random() * symbols.length)];
     }
   }
+
+  const spinBtn = document.getElementById("spinBtn");
+  if (spinBtn) {
+    spinBtn.disabled = false;
+    spinBtn.addEventListener("click", spin);
+  }
+}
 
   const spinBtn = document.getElementById("spinBtn");
   if (spinBtn) {
