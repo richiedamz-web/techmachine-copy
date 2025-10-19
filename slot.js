@@ -6,7 +6,6 @@ function getCacheBustedUrl(url) {
 var symbols = [
   "images/animationnew2.jpg",
   "images/jecodenew2.png",
-  "images/jejoue.jpg",
   "images/jenvoieemails.jpg",
   "images/jenvoiesms.jpg",
   "images/jeparleamies.jpg",
