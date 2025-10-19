@@ -1,4 +1,4 @@
-let symbols = [
+var symbols = [
   "images/animationnew.jpg",
   "images/jecodenew.png",
   "images/jejoue.jpg",
@@ -15,14 +15,14 @@ let symbols = [
 ];
 
 function initializeReels() {
-  for (let i = 1; i <= 5; i++) {
-    const reel = document.getElementById(`reel${i}`);
+  for (var i = 1; i <= 5; i++) {
+    var reel = document.getElementById("reel" + i);
     if (reel) {
       reel.src = symbols[Math.floor(Math.random() * symbols.length)];
     }
   }
 
-  const spinBtn = document.getElementById("spinBtn");
+  var spinBtn = document.getElementById("spinBtn");
   if (spinBtn) {
     spinBtn.disabled = false;
     spinBtn.addEventListener("click", spin);
@@ -31,56 +31,58 @@ function initializeReels() {
 
 function spin() {
   if (symbols.length < 5) {
-    const result = document.getElementById("result");
+    var result = document.getElementById("result");
     if (result) result.textContent = "Not enough symbols!";
     return;
   }
 
-  const availableSymbols = [...symbols];
-  const reels = [];
-  const result = document.getElementById("result");
-  const spinBtn = document.getElementById("spinBtn");
+  var availableSymbols = symbols.slice();
+  var reels = [];
+  var result = document.getElementById("result");
+  var spinBtn = document.getElementById("spinBtn");
   if (spinBtn) spinBtn.disabled = true;
   if (result) result.textContent = "Ça tourne!... 🎰";
 
-  [1, 2, 3, 4, 5].forEach((n, i) => {
-    const reel = document.getElementById(`reel${n}`);
-    if (!reel) return;
+  for (var n = 1; n <= 5; n++) {
+    (function(n, i) {
+      var reel = document.getElementById("reel" + n);
+      if (!reel) return;
 
-    reel.classList.add("spinning");
-    const duration = 2000 + i * 500;
-    const startTime = performance.now();
+      reel.classList.add("spinning");
+      var duration = 2000 + i * 500;
+      var startTime = performance.now();
 
-    function animate(now) {
-      const elapsed = now - startTime;
-      const speed = Math.max(60, 300 - (elapsed / duration) * 300);
-      reel.src = symbols[Math.floor(Math.random() * symbols.length)];
+      function animate(now) {
+        var elapsed = now - startTime;
+        var speed = Math.max(60, 300 - (elapsed / duration) * 300);
+        reel.src = symbols[Math.floor(Math.random() * symbols.length)];
 
-      if (elapsed < duration) {
-        setTimeout(() => requestAnimationFrame(animate), speed);
-      } else {
-        const index = Math.floor(Math.random() * availableSymbols.length);
-        const finalChoice = availableSymbols.splice(index, 1)[0];
-        reel.src = finalChoice;
-        reel.classList.remove("spinning");
-        reel.classList.add("stopping");
-        setTimeout(() => reel.classList.remove("stopping"), 400);
+        if (elapsed < duration) {
+          setTimeout(function() { requestAnimationFrame(animate); }, speed);
+        } else {
+          var index = Math.floor(Math.random() * availableSymbols.length);
+          var finalChoice = availableSymbols.splice(index, 1)[0];
+          reel.src = finalChoice;
+          reel.classList.remove("spinning");
+          reel.classList.add("stopping");
+          setTimeout(function() { reel.classList.remove("stopping"); }, 400);
 
-        reels[n - 1] = finalChoice;
+          reels[n - 1] = finalChoice;
 
-        if (n === 5) {
-          if (reels.every(r => r === reels[0])) {
-            if (result) result.textContent = "🎉 Jackpot! You got 5 in a row!";
-          } else {
-            if (result) result.textContent = "Voici tes images!";
+          if (n === 5) {
+            if (reels.every(function(r) { return r === reels[0]; })) {
+              if (result) result.textContent = "🎉 Jackpot! You got 5 in a row!";
+            } else {
+              if (result) result.textContent = "Voici tes images!";
+            }
+            if (spinBtn) spinBtn.disabled = false;
           }
-          if (spinBtn) spinBtn.disabled = false;
         }
       }
-    }
 
-    requestAnimationFrame(animate);
-  });
+      requestAnimationFrame(animate);
+    })(n, n-1);
+  }
 }
 
 window.addEventListener("DOMContentLoaded", initializeReels);
