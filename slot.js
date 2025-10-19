@@ -1,15 +1,15 @@
 var symbols = [
-  "images/animationnew.jpg",
-  "images/jecodenew.png",
+  "images/animationnew2.jpg",
+  "images/jecodenew2.png",
   "images/jejoue.jpg",
   "images/jenvoieemails.jpg",
   "images/jenvoiesms.jpg",
   "images/jeparleamies.jpg",
-  "images/jeparleamiesnew.jpg",
+  "images/jeparleamiesnew2.jpg",
   "images/jeparleamis.jpg",
-  "images/jeregardenew.jpg",
+  "images/jeregardenew2.jpg",
   "images/jesurfenew.jpg",
-  "images/jetchattenew.png",
+  "images/jetchattenew2.png",
   "images/jetelecharge.jpg",
   "images/programmation.jpg"
 ];
