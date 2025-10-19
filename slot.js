@@ -20,7 +20,8 @@ function initializeReels() {
   for (var i = 1; i <= 5; i++) {
     var reel = document.getElementById("reel" + i);
     if (reel) {
-      reel.src = symbols[Math.floor(Math.random() * symbols.length)];
+      const randomChoice = symbols[Math.floor(Math.random() * symbols.length)];
+reel.src = randomChoice + "?v=" + new Date().getTime();
     }
   }
 
