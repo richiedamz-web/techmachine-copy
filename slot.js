@@ -89,3 +89,5 @@ function spin() {
 }
 
 window.addEventListener("DOMContentLoaded", loadSymbols);
+
+window.addEventListener("DOMContentLoaded", initializeReels);
