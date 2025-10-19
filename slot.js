@@ -2,7 +2,7 @@ let symbols = [];
 
 async function loadSymbols() {
   try {
-const symbols = [
+[
   "images/animationnew.jpg?v=2",
   "images/jecodenew.png?v=2",
   "images/jejoue.jpg?v=2",
