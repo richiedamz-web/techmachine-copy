@@ -14,38 +14,41 @@ let symbols = [
   "images/programmation.jpg?v=2"
 ];
 
- function initializeReels() {
-  for (let i = 1; i <= 5; i++) {
-    const reel = document.getElementById(`reel${i}`);
-    if (reel) {
-      const choice = symbols[Math.floor(Math.random() * symbols.length)];
-      reel.src = choice;
+function initializeReels() {
+  try {
+    for (let i = 1; i <= 5; i++) {
+      const reel = document.getElementById(`reel${i}`);
+      if (reel) {
+        const choice = symbols[Math.floor(Math.random() * symbols.length)];
+        reel.src = choice;
       }
     }
 
     const spinBtn = document.getElementById("spinBtn");
-  if (spinBtn) {
-    spinBtn.disabled = false;
-    spinBtn.addEventListener("click", spin);
-  }
-} catch (err) {
-    console.error("Failed to load images.json", err);
-    document.getElementById("result").textContent = "Error loading images!";
+    if (spinBtn) {
+      spinBtn.disabled = false;
+      spinBtn.addEventListener("click", spin);
+    }
+  } catch (err) {
+    console.error("Failed to initialize reels", err);
+    const result = document.getElementById("result");
+    if (result) result.textContent = "Error loading images!";
   }
 }
 
 function spin() {
   if (symbols.length < 5) {
-    document.getElementById("result").textContent = "Not enough symbols!";
+    const result = document.getElementById("result");
+    if (result) result.textContent = "Not enough symbols!";
     return;
   }
 
- const availableSymbols = [...symbols];
+  const availableSymbols = [...symbols];
   const reels = [];
   const result = document.getElementById("result");
   const spinBtn = document.getElementById("spinBtn");
-  spinBtn.disabled = true;
-  result.textContent = "Ça tourne!... 🎰";
+  if (spinBtn) spinBtn.disabled = true;
+  if (result) result.textContent = "Ça tourne!... 🎰";
 
   [1, 2, 3, 4, 5].forEach((n, i) => {
     const reel = document.getElementById(`reel${n}`);
@@ -75,11 +78,11 @@ function spin() {
 
         if (n === 5) {
           if (reels.every(r => r === reels[0])) {
-            result.textContent = "🎉 Jackpot! You got 5 in a row!";
+            if (result) result.textContent = "🎉 Jackpot! You got 5 in a row!";
           } else {
-            result.textContent = "Voici tes images!";
+            if (result) result.textContent = "Voici tes images!";
           }
-          spinBtn.disabled = false;
+          if (spinBtn) spinBtn.disabled = false;
         }
       }
     }
@@ -88,6 +91,5 @@ function spin() {
   });
 }
 
-window.addEventListener("DOMContentLoaded", loadSymbols);
-
+// Run only one initialization on DOM load
 window.addEventListener("DOMContentLoaded", initializeReels);
