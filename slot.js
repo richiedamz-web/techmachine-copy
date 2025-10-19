@@ -1,17 +1,17 @@
 const cacheBuster = new Date().getTime();
 
 let symbols = [
-  `images/animationnew.jpg?v=${cacheBuster}`,
-  `images/jecodenew.png?v=${cacheBuster}`,
+  `images/animationnew2.jpg?v=${cacheBuster}`,
+  `images/jecodenew2.png?v=${cacheBuster}`,
   `images/jejoue.jpg?v=${cacheBuster}`,
   `images/jenvoieemails.jpg?v=${cacheBuster}`,
   `images/jenvoiesms.jpg?v=${cacheBuster}`,
   `images/jeparleamies.jpg?v=${cacheBuster}`,
-  `images/jeparleamiesnew.jpg?v=${cacheBuster}`,
+  `images/jeparleamiesnew2.jpg?v=${cacheBuster}`,
   `images/jeparleamis.jpg?v=${cacheBuster}`,
-  `images/jeregardenew.jpg?v=${cacheBuster}`,
-  `images/jesurfenew.jpg?v=${cacheBuster}`,
-  `images/jetchattenew.png?v=${cacheBuster}`,
+  `images/jeregardenew2.jpg?v=${cacheBuster}`,
+  `images/jesurfenew2.jpg?v=${cacheBuster}`,
+  `images/jetchattenew2.png?v=${cacheBuster}`,
   `images/jetelecharge.jpg?v=${cacheBuster}`,
   `images/programmation.jpg?v=${cacheBuster}`
 ];
