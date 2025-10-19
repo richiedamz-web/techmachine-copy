@@ -1,6 +1,6 @@
 const cacheBuster = new Date().getTime();
 
-let symbols = [
+var symbols = [
   `images/animationnew2.jpg?v=${cacheBuster}`,
   `images/jecodenew2.png?v=${cacheBuster}`,
   `images/jejoue.jpg?v=${cacheBuster}`,
@@ -58,7 +58,7 @@ function spin() {
       function animate(now) {
         var elapsed = now - startTime;
         var speed = Math.max(60, 300 - (elapsed / duration) * 300);
-        reel.src = symbols[Math.floor(Math.random() * symbols.length)];
+        reel.src = "images/" + symbols[Math.floor(Math.random() * symbols.length)] + "?v=123";
 
         if (elapsed < duration) {
           setTimeout(function() { requestAnimationFrame(animate); }, speed);
