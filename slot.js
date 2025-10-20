@@ -5,7 +5,7 @@ function getCacheBustedUrl(url) {
 // Symbol list (use the actual filenames of your new sharp images)
 var symbols = [
   "images/animationnew2.jpg",
-  "images/jejoue.jpg",
+  "images/jejouenew.jpg",
   "images/jecodenew2.png",
   "images/jenvoieemails.jpg",
   "images/jenvoiesms.jpg",
