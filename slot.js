@@ -13,7 +13,7 @@ var symbols = [
   "images/ouijaimelesanimauxpant.jpg",
   "images/tuaimeslesanimauxpant.jpg",
   "images/unchatpnt.jpg",
-  "images/uncheval.jpg",
+  "images/unchevalpant.jpg",
   "images/unchien.jpg",
   "images/uncochondindepnt.jpg", 
   "images/unesouris.jpg", 
