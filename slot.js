@@ -4,18 +4,24 @@ function getCacheBustedUrl(url) {
 
 // Symbol list (use the actual filenames of your new sharp images)
 var symbols = [
-  "images/animationnew2.jpg",
-  "images/jejouenew.jpg",
-  "images/jecodenew2.png",
-  "images/jenvoieemails.jpg",
-  "images/jenvoiesms.jpg",
-  "images/jeparleamiesnew2.jpg",
-  "images/jeparleamis.jpg",
-  "images/jeregardenew2.jpg",
-  "images/jesurfenew2.jpg",
-  "images/jetchattenew2.png",
-  "images/jetelecharge.jpg",
-  "images/programmation.jpg"
+  "images/elleaunchien.jpg",
+  "images/ilaunchat.jpg",
+  "images/jadoreleschat.jpg",
+  "images/jaimeleschiens.jpg",
+  "images/jenaimepaslesperroquets.jpg",
+  "images/jenaipasdanimal.jpg",
+  "images/ouijaimelesanimaux.jpg",
+  "images/tuaimeslesanimaux.jpg",
+  "images/unchat.jpg",
+  "images/uncheval.jpg",
+  "images/unchien.jpg",
+  "images/uncochondinde.jpg", 
+  "images/unesouris", 
+  "images/unhamster",
+  "images/unherisson", 
+  "images/unlapin",
+  "images/unperroquet",
+  "images/unpoissonrouge"
 ];
 
 // Initialize reels on page load
