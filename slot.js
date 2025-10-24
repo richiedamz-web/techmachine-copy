@@ -4,14 +4,14 @@ function getCacheBustedUrl(url) {
 
 // Symbol list (use the actual filenames of your new sharp images)
 var symbols = [
-  "images/elleaunchienpnt.jpg",
-  "images/ilaunchatpnt.jpg",
-  "images/jadoreleschatspnt.jpg",
-  "images/jaimeleschiens.jpg",
+  "images/elleaunchienpant.jpg",
+  "images/ilaunchatpant.jpg",
+  "images/jadoreleschatspant.jpg",
+  "images/jaimeleschienspant.jpg",
   "images/jenaimepaslesperroquetspnt.jpg",
-  "images/jenaipasdanimalpnt.jpg",
-  "images/ouijaimelesanimauxpnt.jpg",
-  "images/tuaimeslesanimauxpnt.jpg",
+  "images/jenaipasdanimalpant.jpg",
+  "images/ouijaimelesanimauxpant.jpg",
+  "images/tuaimeslesanimauxpant.jpg",
   "images/unchatpnt.jpg",
   "images/uncheval.jpg",
   "images/unchien.jpg",
