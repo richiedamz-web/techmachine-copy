@@ -16,12 +16,12 @@ var symbols = [
   "images/uncheval.jpg",
   "images/unchien.jpg",
   "images/uncochondinde.jpg", 
-  "images/unesouris", 
-  "images/unhamster",
-  "images/unherisson", 
-  "images/unlapin",
-  "images/unperroquet",
-  "images/unpoissonrouge"
+  "images/unesouris.jpg", 
+  "images/unhamster.jpg",
+  "images/unherisson.jpg", 
+  "images/unlapin.jpg",
+  "images/unperroquet.jpg",
+  "images/unpoissonrouge.jpg"
 ];
 
 // Initialize reels on page load
